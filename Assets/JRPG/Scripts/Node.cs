@@ -16,10 +16,10 @@ public class Node : MonoBehaviour
         Game.AddContent($"{gameObject.name}.{parameter}", value);
     }
 
-    public void LoadState(string name, Action<object> callback)
+    public void LoadState<T>(string name, Action<T> callback)
     {
         var parameter = Game.GetContent($"{gameObject.name}.{name}");
-        if (parameter != null) callback.Invoke(parameter);
+        if (parameter != null) callback.Invoke((T)parameter);
     }
 
     public virtual void LoadAllContent()

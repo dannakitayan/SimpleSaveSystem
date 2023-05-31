@@ -7,8 +7,8 @@ public class Test : Node
     public override void LoadAllContent()
     {
         base.LoadAllContent();
-        LoadState("position", (parameter) => gameObject.transform.position = (Vector3)parameter);
-        LoadState("active", (parameter) => gameObject.SetActive((bool)parameter));
+        LoadState<Vector3>("position", (value) => gameObject.transform.position = value);
+        LoadState<bool>("active", (value) => gameObject.SetActive(value));
     }
 
     public override void SaveAllContent()
